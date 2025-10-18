@@ -145,7 +145,7 @@ for i, rec in enumerate(tqdm(records, desc="Copying & converting")):
     key = f"{split}_{label}"
     stats[key] += 1
 
-print("✅ Dataset build complete!")
+print("Dataset build complete!")
 print(f"Train: Helmet={stats['train_helmet']}, NoHelmet={stats['train_no_helmet']}")
 print(f"Val:   Helmet={stats['val_helmet']}, NoHelmet={stats['val_no_helmet']}")
 print(f"Total: {len(records)} images (approx; some may have multiple boxes)")
