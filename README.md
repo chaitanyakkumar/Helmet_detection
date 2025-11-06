@@ -72,7 +72,9 @@ names:
   2: license_plate
 ```
 
+
 ## Project Structure
+```
 .
 ├── data/
 │   ├── images/
@@ -91,6 +93,7 @@ names:
 ├── lp_data_formatting.py   # (Optional) tools to standardize license-plate labels
 ├── utils.py                # Shared helper functions
 └── README.md               # Project documentation
+```
 
 ## Training 
 
