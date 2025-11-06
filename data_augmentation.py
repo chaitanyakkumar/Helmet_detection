@@ -17,7 +17,7 @@ from utils import (
 # Paths
 DATASET_DIR = r"D:\Capstone project\data\helmet_dataset\images\train"
 OUTPUT_DIR = r"D:\Capstone project\data\aug_outputs"
-SHOW = False   # Set to True to visualize augmentations
+SHOW = False   
 SAVE = True
 
 
