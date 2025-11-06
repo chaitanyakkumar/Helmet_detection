@@ -24,7 +24,7 @@ The focus is on **practical, deployable AI**: efficient inference, configurable 
 
 ---
 
-## 📦 Key Features
+##  Key Features
 
 - **YOLOv8-based object detection**
   - 3 classes: `helmet`, `no_helmet`, `license_plate`
@@ -52,7 +52,7 @@ The focus is on **practical, deployable AI**: efficient inference, configurable 
 
 ---
 
-## 🗂 Data Sources
+##  Data Sources
 
 We aggregate helmet and traffic datasets from multiple public sources:
 
@@ -70,7 +70,7 @@ names:
   0: helmet
   1: no_helmet
   2: license_plate
-
+```
 
 ## Project Structure
 .
