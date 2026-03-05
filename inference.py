@@ -8,11 +8,10 @@ import numpy as np
 from ultralytics import YOLO
 from PIL import Image
 import pytesseract
-import IPython.display as display  # optional, for Jupyter
+import IPython.display as display  
 
-# -------------------------------------------------------------------------
-# CONFIG – EDIT THESE PATHS
-# -------------------------------------------------------------------------
+# CONFIG 
+
 BEST_MODEL_PATH = "/content/drive/MyDrive/helmet_runs/helmet_yolov8s/weights/best.pt"
 
 # Image inference
@@ -39,24 +38,20 @@ def ocr_license_plate(plate_img_bgr: np.ndarray) -> str:
     if plate_img_bgr is None or plate_img_bgr.size == 0:
         return ""
 
-    # Convert to grayscale
+
     gray = cv2.cvtColor(plate_img_bgr, cv2.COLOR_BGR2GRAY)
-
-    # Upscale to help OCR
     gray = cv2.resize(gray, None, fx=2.0, fy=2.0, interpolation=cv2.INTER_CUBIC)
-
-    # Denoise + binarize
     gray = cv2.GaussianBlur(gray, (3, 3), 0)
     _, thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
-    # Tesseract config: treat as a single line, restrict to letters+digits
+    # Tesseract config
     config = "--psm 7 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
     text = pytesseract.image_to_string(thresh, config=config)
     # Keep only A–Z and 0–9
     text = re.sub(r"[^A-Z0-9]", "", text.upper())
 
-    # Basic sanity: license plates usually have >=4 chars
+    #license plates usually have >=4 chars
     if 4 <= len(text) <= 12:
         return text
     return ""
